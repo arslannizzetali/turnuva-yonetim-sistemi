@@ -1,0 +1,49 @@
+{
+  "name": "turnuva-yonetim-sistemi",
+  "version": "1.0.0",
+  "description": "Futbol & Voleybol Turnuva Yönetim Sistemi - Çevrimdışı Masaüstü Uygulaması",
+  "main": "main.js",
+  "author": "Turnuva Yönetim Sistemi",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "build:win": "electron-builder --win portable --x64"
+  },
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.turnuvayonetim.app",
+    "productName": "Turnuva Yönetim Sistemi",
+    "copyright": "Copyright © 2026",
+    "asar": true,
+    "compression": "maximum",
+    "files": [
+      "main.js",
+      "index.html",
+      "icon.ico",
+      "package.json",
+      "css/**/*",
+      "js/**/*",
+      "!node_modules/**/*"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        }
+      ],
+      "icon": "icon.ico"
+    },
+    "portable": {
+      "artifactName": "TurnuvaYonetimSistemi-Portable.exe"
+    }
+  }
+}
