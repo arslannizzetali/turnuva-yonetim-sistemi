@@ -13,6 +13,18 @@ let ui = {
   drawAnim: null,         // { running, log:[] }
 };
 
+function brandBlock(){
+  return `
+    <div class="brand">
+      <img src="${LOGO_ICON_DATA}" class="brand-logo" alt="İzzet Arslan">
+      <div class="brand-text">
+        <div class="brand-name">İzzet Arslan</div>
+        <div class="brand-role">Yazılım Mühendisi</div>
+      </div>
+    </div>
+    <div class="topbar-divider"></div>`;
+}
+
 function fmtMatchDate(iso){
   if(!iso) return null;
   const d = new Date(iso);
@@ -63,7 +75,10 @@ function renderDashboard(){
 
   return `
     <div class="topbar no-print">
-      <h1>🏆 Turnuva Yönetim Sistemi</h1>
+      <div class="topbar-left">
+        ${brandBlock()}
+        <h1>🏆 Turnuva Yönetim Sistemi</h1>
+      </div>
       <div class="topbar-actions">
         <button data-action="export-all">⭳ Tümünü Yedekle</button>
         <button data-action="trigger-import-all">⭱ Yedek Yükle</button>
@@ -134,7 +149,10 @@ function renderWizard(){
 
   return `
   <div class="topbar no-print">
-    <h1>🏆 Yeni Turnuva Sihirbazı</h1>
+    <div class="topbar-left">
+      ${brandBlock()}
+      <h1>🏆 Yeni Turnuva Sihirbazı</h1>
+    </div>
     <div class="topbar-actions"><button data-action="wizard-cancel">✕ Vazgeç</button></div>
   </div>
   <div class="container">
@@ -182,9 +200,12 @@ function renderTournament(){
 
   return `
     <div class="topbar no-print">
-      <div>
-        <h1>${t.sport==='football'?'⚽':'🏐'} ${escapeHtml(t.name)}</h1>
-        <div class="sub">${t.sport==='football'?'Futbol':'Voleybol'} &middot; ${t.format==='groups'?'Grup Aşamalı + Elemeli':'Doğrudan Eleme'}</div>
+      <div class="topbar-left">
+        ${brandBlock()}
+        <div>
+          <h1>${t.sport==='football'?'⚽':'🏐'} ${escapeHtml(t.name)}</h1>
+          <div class="sub">${t.sport==='football'?'Futbol':'Voleybol'} &middot; ${t.format==='groups'?'Grup Aşamalı + Elemeli':'Doğrudan Eleme'}</div>
+        </div>
       </div>
       <div class="topbar-actions">
         <button data-action="go-dashboard">← Panele Dön</button>

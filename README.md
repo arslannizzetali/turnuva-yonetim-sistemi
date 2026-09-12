@@ -16,6 +16,7 @@ Futbol ve Voleybol turnuvalarını yönetmek için geliştirilmiş, **tamamen ç
 - **Yazdırma / PDF**: Tek tuşla A4'e uygun çıktı (Windows'un "Microsoft Print to PDF" seçeneğiyle PDF olarak da kaydedilebilir).
 - **JSON Yedekleme**: Turnuva veya tüm veritabanını dışa/içe aktarma (flash bellek ile taşınabilir).
 - **Şampiyonluk Kutlaması**: Konfeti animasyonu ve kupa ekranı.
+- **Marka Alanı**: Üst başlık çubuğunda geliştirici logosu ve unvanı (İzzet Arslan · Yazılım Mühendisi).
 
 ## Proje Yapısı
 
@@ -29,7 +30,8 @@ Futbol ve Voleybol turnuvalarını yönetmek için geliştirilmiş, **tamamen ç
 │   ├── utils.js            # Yardımcı fonksiyonlar, localStorage, Web Audio sesleri
 │   ├── model.js             # Veri modeli: turnuva, kura, fikstür, puan durumu, diskalifiye mantığı
 │   ├── render.js            # Tüm arayüz render fonksiyonları ve ekran akışları
-│   └── app.js                # Olay delegasyonu (buton tıklamaları), JSON dışa/içe aktarma, başlangıç
+│   ├── app.js                # Olay delegasyonu (buton tıklamaları), JSON dışa/içe aktarma, başlangıç
+│   └── logo-data.js          # Başlık çubuğundaki marka logosu (base64 olarak gömülü)
 └── package.json
 ```
 

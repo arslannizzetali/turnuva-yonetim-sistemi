@@ -16,6 +16,7 @@ An Electron desktop application for managing Football and Volleyball tournaments
 - **Print / PDF**: One-click A4-ready printout (can be saved as PDF via Windows' built-in "Microsoft Print to PDF").
 - **JSON Backup**: Export/import a single tournament or the whole database (portable via USB flash drive).
 - **Champion Celebration**: Full-screen confetti animation and trophy screen.
+- **Branding**: Developer logo and title shown in the top bar (İzzet Arslan · Software Engineer).
 
 ## Project Structure
 
@@ -29,7 +30,8 @@ An Electron desktop application for managing Football and Volleyball tournaments
 │   ├── utils.js            # Helpers, localStorage, Web Audio sound effects
 │   ├── model.js             # Data model: tournament, draw, fixtures, standings, disqualification logic
 │   ├── render.js            # All UI render functions and screen flows
-│   └── app.js                # Event delegation (button clicks), JSON export/import, bootstrap
+│   ├── app.js                # Event delegation (button clicks), JSON export/import, bootstrap
+│   └── logo-data.js          # Top-bar brand logo (embedded as base64)
 └── package.json
 ```
 
