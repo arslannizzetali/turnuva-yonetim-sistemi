@@ -317,7 +317,7 @@ function renderGroupsScreen(t){
 
     return `
       <div class="card pad">
-        <div class="group-title">${g.name}</div>
+        <div class="group-title">${escapeHtml(g.name)}</div>
         <div style="overflow-x:auto;">
         <table class="standings">
           <thead><tr>
