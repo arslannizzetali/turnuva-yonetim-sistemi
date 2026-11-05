@@ -16,8 +16,12 @@
     "test": "node --test \"tests/*.test.js\""
   },
   "devDependencies": {
+    "@eslint/js": "^9.39.5",
     "electron": "^31.0.0",
-    "electron-builder": "^24.13.3"
+    "electron-builder": "^24.13.3",
+    "eslint": "^9.39.5",
+    "globals": "^17.14.0",
+    "prettier": "^3.9.10"
   },
   "build": {
     "appId": "com.turnuvayonetim.app",

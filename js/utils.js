@@ -80,5 +80,5 @@ function playFanfare(){
       osc.connect(gain); gain.connect(audioCtx.destination);
       osc.start(t0); osc.stop(t0+0.4);
     });
-  }catch(e){}
+  }catch(e){ /* Audio is optional; ignore devices without Web Audio. */ }
 }
