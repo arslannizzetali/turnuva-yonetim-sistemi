@@ -11,8 +11,8 @@ function loadModel() {
     localStorage: {
       getItem: (key) => (store.has(key) ? store.get(key) : null),
       setItem: (key, value) => store.set(key, String(value)),
-      removeItem: (key) => store.delete(key)
-    }
+      removeItem: (key) => store.delete(key),
+    },
   };
   vm.createContext(context);
   const root = path.join(__dirname, "..", "js");
@@ -23,14 +23,17 @@ function loadModel() {
   return context;
 }
 
-function makeTournament(model, { sport = "football", format = "knockout", teams = 8, groupsCount, qualifyPerGroup } = {}) {
+function makeTournament(
+  model,
+  { sport = "football", format = "knockout", teams = 8, groupsCount, qualifyPerGroup } = {},
+) {
   return model.createTournamentSkeleton({
     name: "Test Cup",
     sport,
     format,
     groupsCount,
     qualifyPerGroup,
-    teamNames: Array.from({ length: teams }, (_, i) => `Team ${i + 1}`)
+    teamNames: Array.from({ length: teams }, (_, i) => `Team ${i + 1}`),
   });
 }
 

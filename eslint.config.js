@@ -10,10 +10,10 @@ module.exports = [
     // not resolvable per file.
     files: ["js/**/*.js"],
     languageOptions: { sourceType: "script", globals: { ...globals.browser } },
-    rules: { "no-undef": "off", "no-unused-vars": "off" }
+    rules: { "no-undef": "off", "no-unused-vars": "off" },
   },
   {
     files: ["main.js", "eslint.config.js", "tests/**/*.js"],
-    languageOptions: { sourceType: "commonjs", globals: { ...globals.node } }
-  }
+    languageOptions: { sourceType: "commonjs", globals: { ...globals.node } },
+  },
 ];

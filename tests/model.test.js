@@ -38,7 +38,10 @@ test("groups: teams are split evenly and fixtures are generated per group", () =
 
 test("knockout: non power-of-two field gets byes so round 2 is full", () => {
   const t = makeTournament(model, { teams: 6 });
-  model.buildKnockout(t, t.teams.map((x) => x.id));
+  model.buildKnockout(
+    t,
+    t.teams.map((x) => x.id),
+  );
   const [first, second, final] = t.knockout.rounds;
   assert.equal(first.length, 4);
   assert.equal(first.filter((m) => m.isBye).length, 2);
@@ -63,7 +66,10 @@ test("knockout: group leaders get the byes", () => {
 
 test("knockout: special three-team rule gives one bye straight to the final", () => {
   const t = makeTournament(model, { teams: 3 });
-  model.buildKnockout(t, t.teams.map((x) => x.id));
+  model.buildKnockout(
+    t,
+    t.teams.map((x) => x.id),
+  );
   assert.equal(t.knockout.special3, true);
   const [[semi], [final]] = t.knockout.rounds;
   assert.equal(semi.nextMatchId, final.id);
@@ -100,17 +106,14 @@ test("football standings: 3/1/0 points, then goal difference, then goals scored"
   play(t, b, c, [4, 2]);
   const rows = model.computeStandings(t, t.groups[0]);
   assert.deepEqual(plain(rows.map((r) => r.id)), [a, b, c]);
-  assert.deepEqual(
-    plain(rows.map((r) => r.PTS)),
-    [4, 4, 0]
-  );
+  assert.deepEqual(plain(rows.map((r) => r.PTS)), [4, 4, 0]);
   // a and b are level on points; a wins on goal difference (+3 vs +2).
 });
 
 test("volleyball standings: 3-0/3-1 win = 3 pts, 3-2 win = 2-1 split", () => {
-  assert.deepEqual(plain(model.volleyballPoints(3, 0) ), { w: 3, l: 0 });
-  assert.deepEqual(plain(model.volleyballPoints(3, 1) ), { w: 3, l: 0 });
-  assert.deepEqual(plain(model.volleyballPoints(3, 2) ), { w: 2, l: 1 });
+  assert.deepEqual(plain(model.volleyballPoints(3, 0)), { w: 3, l: 0 });
+  assert.deepEqual(plain(model.volleyballPoints(3, 1)), { w: 3, l: 0 });
+  assert.deepEqual(plain(model.volleyballPoints(3, 2)), { w: 2, l: 1 });
 
   const t = groupOf(model, 2, "volleyball");
   const [a, b] = t.teams.map((x) => x.id);
@@ -118,7 +121,7 @@ test("volleyball standings: 3-0/3-1 win = 3 pts, 3-2 win = 2-1 split", () => {
   const rows = model.computeStandings(t, t.groups[0]);
   assert.deepEqual(plain(rows.map((r) => [r.id, r.PTS])), [
     [a, 2],
-    [b, 1]
+    [b, 1],
   ]);
 });
 
@@ -132,12 +135,15 @@ test("disqualification: played matches stay, unplayed ones become 3-0 walkovers"
   assert.equal(ab.walkover, false);
   assert.equal(ac.walkover, true);
   assert.equal(ac.winner, c);
-  assert.deepEqual(plain(ac.score ), ac.teamA === c ? { a: 3, b: 0 } : { a: 0, b: 3 });
+  assert.deepEqual(plain(ac.score), ac.teamA === c ? { a: 3, b: 0 } : { a: 0, b: 3 });
 });
 
 test("disqualification in knockout advances the opponent to the next round", () => {
   const t = makeTournament(model, { teams: 4 });
-  model.buildKnockout(t, t.teams.map((x) => x.id));
+  model.buildKnockout(
+    t,
+    t.teams.map((x) => x.id),
+  );
   const semi = t.knockout.rounds[0][0];
   const loser = semi.teamA;
   model.disqualifyTeam(t, loser);
