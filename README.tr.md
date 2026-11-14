@@ -59,8 +59,6 @@ npm run build:win
 
 Çıktı `dist/` klasöründe `TurnuvaYonetimSistemi-Portable.exe` olarak oluşur. Bu dosya kuruluma ihtiyaç duymadan çift tıklayarak çalışır.
 
-> **Not:** `icon.ico` şu an yer tutucu bir simgedir. Teslim öncesi kendi logonuzla değiştirip aynı isimle (`icon.ico`) kaydetmeniz yeterlidir.
-
 ## Veri Saklama
 
 Tüm turnuva verileri tarayıcı motorunun (Chromium/Electron) `localStorage` alanında, kullanıcının bilgisayarında saklanır. İnternet bağlantısı hiçbir aşamada gerekmez.
